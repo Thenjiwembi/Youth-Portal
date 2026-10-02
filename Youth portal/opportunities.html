@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Opportunities | Youth Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <a href="index.html" class="logo-text">Youth<span>Portal</span></a>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link active">Explore Opportunities</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact & Report</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon" aria-hidden="true">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="explore-container">
+    <aside class="filter-card">
+      <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--space-kadet);">Filter Listings</h2>
+      
+      <div class="filter-group">
+        <label for="filter-keyword">Search Keyword</label>
+        <input type="text" id="filter-keyword" class="filter-control" placeholder="Role, skill, or company">
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-category">Category</label>
+        <select id="filter-category" class="filter-control">
+          <option value="">All Categories</option>
+          <option value="Learnerships">Learnerships</option>
+          <option value="Internships">Internships</option>
+          <option value="Bursaries">Bursaries</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-location">Location</label>
+        <select id="filter-location" class="filter-control">
+          <option value="">All Locations</option>
+          <option value="Cape Town">Cape Town</option>
+          <option value="Johannesburg">Johannesburg</option>
+          <option value="Durban">Durban</option>
+          <option value="Remote">Remote</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-experience">Experience Level</label>
+        <select id="filter-experience" class="filter-control">
+          <option value="">All Levels</option>
+          <option value="No Experience Required">No Experience Required</option>
+          <option value="Entry Level / Graduate">Entry Level / Graduate</option>
+          <option value="Students">Students</option>
+        </select>
+      </div>
+
+      <button id="reset-filters" class="btn-secondary" style="width: 100%; text-align: center;">Reset Filters</button>
+    </aside>
+
+    <main>
+      <div class="results-header">
+        <h1 style="font-size: 1.5rem; color: var(--space-kadet);">Available Opportunities</h1>
+        <span id="results-count" style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;">Showing 0 roles</span>
+      </div>
+
+      <div id="opportunities-grid" class="cards-grid"></div>
+    </main>
+  </div>
+  <!-- Shared Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="font-size: 1.2rem; font-weight: 700;">Youth<span style="color: var(--pink, #ec4899);">Portal</span></h4>
+        <p>Empowering South African youth with verified jobs, learnerships, and educational opportunities.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Explore Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html">Contact & Report</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="opportunities.html?category=Learnerships">Learnerships</a></li>
+          <li><a href="opportunities.html?category=Internships">Internships</a></li>
+          <li><a href="opportunities.html?category=Bursaries">Bursaries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Scam Alert & Safety</h4>
+        <p>Youth Portal is 100% free. Never pay anyone for job applications or interviews.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Youth Portal. Built for empowerment and accessible career development.</p>
+    </div>
+  </footer>
+
+
+  <script src="../js/data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const keywordInput = document.getElementById("filter-keyword");
+      const categorySelect = document.getElementById("filter-category");
+      const locationSelect = document.getElementById("filter-location");
+      const experienceSelect = document.getElementById("filter-experience");
+      const resetButton = document.getElementById("reset-filters");
+      const grid = document.getElementById("opportunities-grid");
+      const countEl = document.getElementById("results-count");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get("search")) keywordInput.value = urlParams.get("search");
+      if (urlParams.get("category")) categorySelect.value = urlParams.get("category");
+      if (urlParams.get("location")) locationSelect.value = urlParams.get("location");
+
+      function filterAndRender() {
+        const kw = keywordInput.value.toLowerCase().trim();
+        const cat = categorySelect.value;
+        const loc = locationSelect.value;
+        const exp = experienceSelect.value;
+
+        const filtered = opportunitiesData.filter(item => {
+          const matchesKw = !kw || item.title.toLowerCase().includes(kw) || item.organisation.toLowerCase().includes(kw) || item.shortDescription.toLowerCase().includes(kw);
+          const matchesCat = !cat || item.category === cat;
+          const matchesLoc = !loc || item.location.includes(loc);
+          const matchesExp = !exp || item.experienceLevel === exp;
+          return matchesKw && matchesCat && matchesLoc && matchesExp;
+        });
+
+        countEl.textContent = `Showing ${filtered.length} opportunity${filtered.length === 1 ? '' : 'ies'}`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <h3 style="color: var(--space-kadet); margin-bottom: 0.5rem;">No matching opportunities found</h3>
+              <p style="color: var(--text-muted);">Try clearing your search terms or choosing a different filter category.</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(opp => `
+          <article class="card">
+            <div>
+              <span class="card-tag">${opp.category}</span>
+              <h3 class="card-title">${opp.title}</h3>
+              <p class="card-org">${opp.organisation}</p>
+              <p class="card-meta">📍 ${opp.location} | ⏳ Closes: <strong>${opp.closingDate}</strong></p>
+              <p class="card-desc">${opp.shortDescription}</p>
+            </div>
+            <div>
+              <a href="opportunity-detail.html?id=${opp.id}" class="btn-primary" style="width: 100%; text-align: center;">View Details</a>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      [keywordInput, categorySelect, locationSelect, experienceSelect].forEach(el => {
+        el.addEventListener("input", filterAndRender);
+        el.addEventListener("change", filterAndRender);
+      });
+
+      resetButton.addEventListener("click", () => {
+        keywordInput.value = "";
+        categorySelect.value = "";
+        locationSelect.value = "";
+        experienceSelect.value = "";
+        filterAndRender();
+      });
+
+      filterAndRender();
+    });
+  </script>
+</body>
+</html>
