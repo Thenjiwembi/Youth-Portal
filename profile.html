@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile | Youth Opportunities Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <a href="index.html" class="logo-text">Youth<span>Portal</span></a>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link">Explore Opportunities</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="profile.html" class="nav-link active">My Profile</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+          <button id="logout-btn" class="btn-secondary">Log Out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="section-container" style="max-width: 800px; margin-top: 2rem;">
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="avatar-circle" id="avatar-initials">TM</div>
+        <div>
+          <h2 id="display-fullname">Thenjiwe Mbi</h2>
+          <p id="display-email" style="color: #64748b;">thenjiwe.mbi@example.com</p>
+        </div>
+      </div>
+
+      <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #e2e8f0;">
+
+      <h3>Edit Profile Information</h3>
+      <form id="profile-form" style="margin-top: 1rem;">
+        <div class="form-group">
+          <label for="profile-fullname">Full Name</label>
+          <input type="text" id="profile-fullname" value="Thenjiwe Mbi" required>
+        </div>
+
+        <div class="form-group">
+          <label for="profile-email">Email Address</label>
+          <input type="email" id="profile-email" value="thenjiwe.mbi@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="profile-location">City / Location</label>
+          <input type="text" id="profile-location" value="Cape Town" placeholder="e.g. Cape Town">
+        </div>
+
+        <div class="form-group">
+          <label for="profile-qualification">Highest Qualification</label>
+          <select id="profile-qualification">
+            <option value="Matric Certificate">Matric Certificate</option>
+            <option value="Higher Certificate">Higher Certificate</option>
+            <option value="Diploma" selected>Diploma in ICT Application Development</option>
+            <option value="Bachelor's Degree">Bachelor's Degree</option>
+            <option value="Postgraduate">Postgraduate Degree</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="profile-skills">Key Skills (comma separated)</label>
+          <input type="text" id="profile-skills" value="HTML5, CSS3, JavaScript, TypeScript, React.js, Vue.js, PHP, Python, MySQL" placeholder="e.g. HTML, CSS, JavaScript, PHP, Python">
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn-primary">Save Changes</button>
+          <p id="save-status" style="align-self: center; color: #16a34a; font-weight: 600; display: none;">Saved successfully!</p>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="font-size: 1.2rem; font-weight: 700;">Youth<span style="color: var(--pink, #ec4899);">Portal</span></h4>
+        <p>Empowering South African youth with verified jobs, learnerships, and educational opportunities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Explore Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Log In</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Youth Portal. Built for empowerment and accessible career development.</p>
+    </div>
+  </footer>
+
+  <script src="../js/auth.js"></script>
+</body>
+</html>

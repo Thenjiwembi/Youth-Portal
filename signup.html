@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Youth Opportunities Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <a href="index.html" class="logo-text">Youth<span>Portal</span></a>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link">Explore Opportunities</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact & Report</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-secondary">Log In</a>
+          <a href="signup.html" class="btn-primary active">Sign Up</a>
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon" aria-hidden="true">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Auth Form Container -->
+  <main class="auth-container">
+    <div class="auth-card">
+      <h2>Create Your Account</h2>
+      <p class="auth-sub">Join thousands of South African youth accessing verified opportunities.</p>
+
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="signup-fullname">Full Name</label>
+          <input type="text" id="signup-fullname" placeholder="e.g. Thenjiwe Mbi" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-location">City / Location</label>
+          <input type="text" id="signup-location" placeholder="e.g. Cape Town" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-primary auth-btn">Create Account</button>
+      </form>
+
+      <p class="auth-footer-text">Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="font-size: 1.2rem; font-weight: 700;">Youth<span style="color: var(--pink, #ec4899);">Portal</span></h4>
+        <p>Empowering South African youth with verified jobs, learnerships, and educational opportunities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Explore Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Log In</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Youth Portal. Built for empowerment and accessible career development.</p>
+    </div>
+  </footer>
+
+  <script src="../js/auth.js"></script>
+</body>
+</html>
