@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#261307">
+  <meta name="description" content="View and edit your Youth Portal profile details and picture.">
+  <title>My Profile | Youth Portal</title>
+  <link rel="stylesheet" href="css/style.css?v=profile-20261006-1127">
+  <link rel="stylesheet" href="css/brand-theme.css?v=profile-20261006-1127">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo"><a href="index.html" class="logo-text">Youth<span>Portal</span></a></div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link">Explore Opportunities</a></li>
+          <li><a href="archive.html" class="nav-link">Archive</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact & Report</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile" aria-current="page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
+          <button id="logout-btn" class="btn-secondary" type="button">Log Out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="profile-page section-container">
+    <div class="profile-page-heading">
+      <div>
+        <p class="section-kicker">Your account · your next step</p>
+        <h1>My profile</h1>
+        <p class="profile-page-intro">Keep your contact and career details up to date so you can find opportunities that fit.</p>
+      </div>
+      <button class="btn-primary" id="edit-profile-btn" type="button" aria-expanded="false" aria-controls="profile-edit-form">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"></path></svg>
+        <span id="edit-profile-label">Edit profile</span>
+      </button>
+    </div>
+
+    <p class="profile-status" id="profile-status" role="status" aria-live="polite" hidden></p>
+
+    <section class="profile-overview-card" aria-labelledby="profile-display-name">
+      <div class="profile-identity">
+        <div class="profile-avatar-wrap">
+          <label class="profile-avatar-button" id="change-photo-btn" for="profile-photo-input" title="Change profile picture">
+            <div class="profile-avatar avatar-circle" id="avatar-fallback" aria-hidden="true">Y</div>
+            <img class="profile-avatar profile-avatar-image" id="profile-avatar-image" alt="" hidden>
+            <span class="avatar-change-button" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h-4L8 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+            </span>
+          </label>
+          <input class="visually-hidden-file" id="profile-photo-input" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Choose a JPG, PNG, or WebP profile picture">
+        </div>
+        <div class="profile-identity-copy">
+          <p class="profile-eyebrow">Profile overview</p>
+          <h2 id="profile-display-name">Your profile</h2>
+          <p class="profile-display-email" id="profile-display-email">Add an email address</p>
+          <p class="profile-member-note" id="profile-member-note">Your details help personalise your opportunity search.</p>
+        </div>
+      </div>
+      <div class="profile-overview-actions">
+        <span class="profile-photo-note">JPG, PNG or WebP · max 5 MB</span>
+        <label class="profile-change-photo" id="change-photo-text-btn" for="profile-photo-input">Change picture</label>
+        <button type="button" class="profile-remove-photo" id="remove-photo-btn" hidden>Remove picture</button>
+      </div>
+    </section>
+
+    <form id="profile-edit-form" class="profile-edit-form" hidden>
+      <div class="profile-edit-heading">
+        <div><p class="section-kicker">Edit your details</p><h2>Make your profile yours</h2></div>
+        <p>Only share details you’re comfortable storing in this browser. Never add your ID number or bank details.</p>
+      </div>
+      <div class="profile-edit-grid">
+        <div class="form-group">
+          <label for="profile-fullname">Full name</label>
+          <input type="text" id="profile-fullname" name="fullName" autocomplete="name" maxlength="100" placeholder="e.g. Thenjiwe Mbi" required>
+        </div>
+        <div class="form-group">
+          <label for="profile-email">Email address</label>
+          <input type="email" id="profile-email" name="email" autocomplete="email" maxlength="254" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="profile-location">City or location</label>
+          <input type="text" id="profile-location" name="location" autocomplete="address-level2" maxlength="100" placeholder="e.g. Cape Town">
+        </div>
+        <div class="form-group">
+          <label for="profile-phone">Phone number <span class="profile-optional">Optional</span></label>
+          <input type="tel" id="profile-phone" name="phone" autocomplete="tel" maxlength="30" placeholder="e.g. 082 123 4567">
+        </div>
+        <div class="form-group">
+          <label for="profile-qualification">Highest qualification</label>
+          <select id="profile-qualification" name="qualification">
+            <option value="">Select if you’d like</option>
+            <option value="Below Matric">Below Matric</option>
+            <option value="Matric Certificate">Matric Certificate</option>
+            <option value="Higher Certificate">Higher Certificate</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Diploma in ICT Application Development">Diploma in ICT Application Development</option>
+            <option value="Bachelor's Degree">Bachelor’s Degree</option>
+            <option value="Honours Degree">Honours Degree</option>
+            <option value="Postgraduate Degree">Postgraduate Degree</option>
+            <option value="Postgraduate">Postgraduate Degree (older profile)</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group profile-edit-span">
+          <label for="profile-about">About you <span class="profile-optional">Optional</span></label>
+          <textarea id="profile-about" name="about" rows="3" maxlength="500" placeholder="A short introduction about your interests, strengths, or what you’re working towards."></textarea>
+          <small class="profile-field-hint">Keep it brief. Don’t include sensitive personal information.</small>
+        </div>
+        <div class="form-group profile-edit-span">
+          <label for="profile-skills">Skills <span class="profile-optional">Separate with commas</span></label>
+          <input type="text" id="profile-skills" name="skills" maxlength="500" placeholder="e.g. Communication, Excel, customer service">
+        </div>
+        <div class="form-group profile-edit-span">
+          <label for="profile-interests">Career interests <span class="profile-optional">Optional · separate with commas</span></label>
+          <input type="text" id="profile-interests" name="interests" maxlength="400" placeholder="e.g. IT support, administration, youth development">
+        </div>
+      </div>
+      <div class="profile-form-actions">
+        <button type="submit" class="btn-primary" id="save-profile-btn">Save profile</button>
+        <button type="button" class="btn-secondary profile-cancel-btn" id="cancel-profile-btn">Cancel</button>
+      </div>
+    </form>
+
+    <section class="profile-details-section" aria-labelledby="profile-details-title">
+      <div class="profile-section-heading">
+        <div><p class="section-kicker">The essentials</p><h2 id="profile-details-title">Your details</h2></div>
+        <p>These are the details saved to this browser profile.</p>
+      </div>
+      <div class="profile-detail-grid">
+        <article class="profile-detail-item"><span class="profile-detail-icon" aria-hidden="true">⌖</span><div><p>Location</p><strong id="profile-display-location">Not added yet</strong></div></article>
+        <article class="profile-detail-item"><span class="profile-detail-icon" aria-hidden="true">☎</span><div><p>Phone number</p><strong id="profile-display-phone">Not added yet</strong></div></article>
+        <article class="profile-detail-item"><span class="profile-detail-icon" aria-hidden="true">✦</span><div><p>Highest qualification</p><strong id="profile-display-qualification">Not added yet</strong></div></article>
+        <article class="profile-detail-item profile-detail-about"><span class="profile-detail-icon" aria-hidden="true">“</span><div><p>About</p><strong id="profile-display-about">Add a short introduction to tell us about yourself.</strong></div></article>
+      </div>
+    </section>
+
+    <div class="profile-career-grid">
+      <section class="profile-list-card" aria-labelledby="profile-skills-title">
+        <div class="profile-section-heading compact"><div><p class="section-kicker">What you bring</p><h2 id="profile-skills-title">Skills</h2></div></div>
+        <div class="profile-chip-list" id="profile-display-skills"><span class="profile-empty-inline">Add your skills when you edit your profile.</span></div>
+      </section>
+      <section class="profile-list-card" aria-labelledby="profile-interests-title">
+        <div class="profile-section-heading compact"><div><p class="section-kicker">Where you’re headed</p><h2 id="profile-interests-title">Career interests</h2></div></div>
+        <div class="profile-chip-list" id="profile-display-interests"><span class="profile-empty-inline">Add roles or fields you’re interested in.</span></div>
+      </section>
+    </div>
+
+    <aside class="profile-privacy-note">
+      <span class="privacy-note-icon" aria-hidden="true">i</span>
+      <p><strong>Prototype privacy note</strong>Your profile and picture are stored only in this browser’s local storage. They do not sync to an account or server. This demo is not secure authentication; don’t enter passwords or sensitive details here.</p>
+    </aside>
+
+    <div class="profile-next-steps">
+      <p>Ready for your next step?</p>
+      <a href="opportunities.html" class="btn-primary">Explore opportunities <span aria-hidden="true">→</span></a>
+      <a href="resources.html" class="profile-resource-link">Get CV and cover-letter help</a>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-col"><h4>Youth<span style="color: var(--pink);">Portal</span></h4><p>Helping South African youth explore opportunities and career guidance.</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="opportunities.html">Explore Opportunities</a></li><li><a href="resources.html">Career Resources</a></li><li><a href="contact.html">Contact & Report</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Log In</a></li><li><a href="signup.html">Sign Up</a></li><li><a href="profile.html">My Profile</a></li></ul></div>
+      <div class="footer-col"><h4>Stay safe</h4><p>Youth Portal is a free demo. Never pay anyone for job applications or interviews.</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Youth Portal. Built for empowerment and accessible career development.</p></div>
+  </footer>
+
+  <script src="js/auth.js?v=profile-20261006-1127"></script>
+  <script src="js/features.js?v=profile-20261006-1127"></script>
+</body>
+</html>

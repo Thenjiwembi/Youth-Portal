@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#261307">
+  <meta name="description" content="Your locally saved document check history and shared opportunities.">
+  <title>Archive | Youth Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/brand-theme.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo"><a href="index.html" class="logo-text">Youth<span>Portal</span></a></div>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link">Explore Opportunities</a></li>
+          <li><a href="archive.html" class="nav-link active" aria-current="page">Archive</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact &amp; Report</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="archive-page section-container">
+    <div class="archive-heading">
+      <div>
+        <p class="section-kicker">Your activity · stored on this device</p>
+        <h1>Your archive</h1>
+        <p>Return to documents you checked and opportunities you shared. Document files and their contents are never stored here.</p>
+      </div>
+      <button type="button" class="btn-secondary archive-clear" id="clear-archive">Clear archive</button>
+    </div>
+
+    <section class="archive-section" aria-labelledby="archive-documents-title">
+      <div class="archive-section-heading"><h2 id="archive-documents-title">Documents checked</h2></div>
+      <div class="archive-list" id="archive-documents" aria-live="polite"></div>
+    </section>
+
+    <section class="archive-section" aria-labelledby="archive-opportunities-title">
+      <div class="archive-section-heading"><h2 id="archive-opportunities-title">Opportunities shared</h2></div>
+      <div class="archive-list" id="archive-opportunities" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand"><a href="index.html" class="logo-text">Youth<span>Portal</span><i aria-hidden="true">.</i></a><p>A starting point for South Africa’s next generation.</p></div>
+      <div class="footer-col"><h2>Explore</h2><ul><li><a href="opportunities.html">All opportunities</a></li><li><a href="resources.html">Career resources</a></li><li><a href="profile.html">My profile</a></li></ul></div>
+      <div class="footer-col"><h2>Get involved</h2><ul><li><a href="contact.html">Contact &amp; report</a></li><li><a href="opportunities.html?category=Jobs">Jobs</a></li><li><a href="opportunities.html?category=Bursaries">Bursaries</a></li></ul></div>
+      <div class="footer-note"><span class="footer-spark" aria-hidden="true">✳</span><h2>Stay curious.<br>Stay scam-safe.</h2><p>Never pay a fee to apply for a job or attend an interview.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Youth Portal</span><span>Built for the next step.</span></div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/features.js"></script>
+</body>
+</html>

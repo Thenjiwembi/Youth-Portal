@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#261307">
+  <title>Explore Opportunities | Youth Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/brand-theme.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <a href="index.html" class="logo-text">Youth<span>Portal</span></a>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="opportunities.html" class="nav-link active">Explore Opportunities</a></li>
+          <li><a href="archive.html" class="nav-link">Archive</a></li>
+          <li><a href="resources.html" class="nav-link">Career Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact & Report</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-nav-link" title="My Profile" aria-label="My Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon" aria-hidden="true">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="explore-container">
+    <aside class="filter-card">
+      <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--space-kadet);">Filter Listings</h2>
+      
+      <div class="filter-group">
+        <label for="filter-keyword">Search Keyword</label>
+        <input type="text" id="filter-keyword" class="filter-control" placeholder="Role, skill, or company">
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-category">Category</label>
+        <select id="filter-category" class="filter-control">
+          <option value="">All Categories</option>
+          <option value="Jobs">Jobs</option>
+          <option value="Learnerships">Learnerships</option>
+          <option value="Internships">Internships</option>
+          <option value="Bursaries">Bursaries</option>
+          <option value="Courses &amp; Skills Programmes">Courses &amp; Skills Programmes</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-location">Location</label>
+        <input type="text" id="filter-location" class="filter-control" placeholder="Any location (e.g. Cape Town)" aria-label="Filter by location">
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-experience">Experience Level</label>
+        <select id="filter-experience" class="filter-control">
+          <option value="">All Levels</option>
+          <option value="No Experience Required">No Experience Required</option>
+          <option value="Entry Level / Graduate">Entry Level / Graduate</option>
+          <option value="Students">Students</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-closing-date">Closing on or before</label>
+        <input type="date" id="filter-closing-date" class="filter-control">
+      </div>
+
+      <button id="saved-only-btn" class="btn-tertiary" type="button" aria-pressed="false">☆ Show saved <span class="saved-count" data-saved-count>0</span></button>
+      <button id="reset-filters" class="btn-secondary" style="width: 100%; text-align: center;">Reset Filters</button>
+    </aside>
+
+    <main>
+      <div class="results-header">
+        <h1 style="font-size: 1.5rem; color: var(--space-kadet);">Available Opportunities</h1>
+        <span id="results-count" style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;">Showing 0 roles</span>
+      </div>
+      <p class="demo-notice" role="note">All records on this page are fictional demonstration listings. They are not verified vacancies and cannot be used to apply. Listings past their closing date are hidden automatically.</p>
+
+      <form class="web-search-card" id="web-search-form">
+        <div><p class="section-kicker">Looking for more?</p><h2>Search the wider web</h2><p>Open a web search for opportunities beyond these sample listings. Check every result on the organisation’s official site.</p></div>
+        <label class="visually-hidden" for="web-search-term">Search term for the wider web</label>
+        <input class="filter-control" id="web-search-term" type="search" placeholder="e.g. graduate roles in Gauteng">
+        <button class="btn-primary" type="submit">Search the web <span aria-hidden="true">↗</span></button>
+      </form>
+
+      <div id="opportunities-grid" class="cards-grid"></div>
+    </main>
+  </div>
+
+  <section class="email-alert-section" aria-labelledby="email-alert-heading">
+    <div class="email-alert-card">
+      <div><p class="section-kicker">A little heads-up</p><h2 id="email-alert-heading">Deadline alert mock-up</h2><p>Try the sign-up flow as a prototype. No email is saved or sent.</p></div>
+      <form id="email-alert-form" class="email-alert-form">
+        <label class="visually-hidden" for="email-alert-address">Email address</label>
+        <input id="email-alert-address" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="btn-primary" type="submit">Preview alerts</button>
+        <p id="email-alert-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+  <!-- Shared Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="font-size: 1.2rem; font-weight: 700;">Youth<span style="color: var(--pink, #ec4899);">Portal</span></h4>
+        <p>Helping South African youth explore opportunities and career guidance.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="opportunities.html">Explore Opportunities</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="contact.html">Contact & Report</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="opportunities.html?category=Learnerships">Learnerships</a></li>
+          <li><a href="opportunities.html?category=Internships">Internships</a></li>
+          <li><a href="opportunities.html?category=Bursaries">Bursaries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Scam Alert & Safety</h4>
+        <p>Youth Portal is 100% free. Never pay anyone for job applications or interviews.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Youth Portal. Built for empowerment and accessible career development.</p>
+    </div>
+  </footer>
+
+
+  <script src="js/data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const keywordInput = document.getElementById("filter-keyword");
+      const categorySelect = document.getElementById("filter-category");
+      const locationSelect = document.getElementById("filter-location");
+      const experienceSelect = document.getElementById("filter-experience");
+      const closingDateInput = document.getElementById("filter-closing-date");
+      const resetButton = document.getElementById("reset-filters");
+      const savedOnlyButton = document.getElementById("saved-only-btn");
+      const grid = document.getElementById("opportunities-grid");
+      const countEl = document.getElementById("results-count");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get("search")) keywordInput.value = urlParams.get("search");
+      if (urlParams.get("category")) categorySelect.value = urlParams.get("category");
+      if (urlParams.get("location")) locationSelect.value = urlParams.get("location");
+      if (urlParams.get("closingBefore")) closingDateInput.value = urlParams.get("closingBefore");
+      let showSavedOnly = urlParams.get("saved") === "1";
+
+      function updateSavedFilterButton() {
+        savedOnlyButton.setAttribute("aria-pressed", String(showSavedOnly));
+        savedOnlyButton.innerHTML = `${showSavedOnly ? "★ Showing saved" : "☆ Show saved"} <span class="saved-count" data-saved-count>${getSavedOpportunityIds().length}</span>`;
+      }
+
+      function filterAndRender() {
+        const kw = keywordInput.value.toLowerCase().trim();
+        const cat = categorySelect.value;
+        const loc = locationSelect.value;
+        const exp = experienceSelect.value;
+        const closingBefore = closingDateInput.value;
+        const savedIds = getSavedOpportunityIds();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const filtered = opportunitiesData.filter(item => {
+          const rawClosingDate = typeof item.closingDate === "string" ? item.closingDate.trim() : "";
+          const closingDate = rawClosingDate ? new Date(`${rawClosingDate}T00:00:00`) : null;
+          const searchable = [item.title, item.organisation, item.category, item.location, item.experienceLevel, item.shortDescription, ...(item.requirements || [])];
+          const matchesKw = !kw || searchable.some(value => value.toLowerCase().includes(kw));
+          const matchesCat = !cat || item.category === cat;
+          const matchesLoc = !loc || item.location.toLowerCase().includes(loc.toLowerCase());
+          const matchesExp = !exp || item.experienceLevel === exp;
+          const isActive = !rawClosingDate || Number.isNaN(closingDate.getTime()) || closingDate >= today;
+          const matchesClosingDate = !closingBefore || !rawClosingDate || rawClosingDate <= closingBefore;
+          const matchesSaved = !showSavedOnly || savedIds.includes(String(item.id));
+          return isActive && matchesKw && matchesCat && matchesLoc && matchesExp && matchesClosingDate && matchesSaved;
+        });
+
+        countEl.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? 'opportunity' : 'opportunities'}`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <h3 style="color: var(--space-kadet); margin-bottom: 0.5rem;">No matching opportunities found</h3>
+              <p style="color: var(--text-muted);">Try clearing your search terms or choosing a different filter category.</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(opp => {
+          const countdown = getOpportunityCountdown(opp.closingDate);
+          const saved = isOpportunitySaved(opp.id);
+          const sourceLink = opp.applicationLink ? `<a href="${opp.applicationLink}" class="btn-tertiary card-action" target="_blank" rel="noopener noreferrer">Official link</a>` : "";
+          return `
+          <article class="card">
+            <span class="demo-badge">Sample listing · Not verified</span>
+            <div>
+              <span class="card-tag">${opp.category}</span>
+              <h3 class="card-title">${opp.title}</h3>
+              <p class="card-org">${opp.organisation}</p>
+              <p class="card-meta">📍 ${opp.location}<br>🎓 ${opp.experienceLevel}<br>⏳ Closes: <strong>${opp.closingDate || "Check official source"}</strong></p>
+              <span class="deadline-countdown ${countdown.soon ? "closing-soon" : ""}">${countdown.text}</span>
+              <p class="card-desc">${opp.shortDescription}</p>
+              <p class="card-updated">Sample data updated: ${opp.updatedDate}</p>
+            </div>
+            <div class="card-actions">
+              <a href="opportunity-details.html?id=${encodeURIComponent(opp.id)}" class="btn-primary card-action">View Details</a>
+              ${sourceLink}
+              <button type="button" class="save-opportunity-btn ${saved ? "is-saved" : ""}" data-save-id="${opp.id}" aria-pressed="${saved}" aria-label="${saved ? "Remove saved opportunity" : "Save opportunity"}"><span aria-hidden="true">★</span><span class="save-label">${saved ? "Saved" : "Save"}</span></button>
+              <button type="button" class="share-opportunity-btn" data-share-id="${opp.id}" aria-label="Share ${opp.title}"><span aria-hidden="true">↗</span><span class="visually-hidden">Share</span></button>
+            </div>
+          </article>
+        `;
+        }).join("");
+      }
+
+      [keywordInput, categorySelect, locationSelect, experienceSelect, closingDateInput].forEach(el => {
+        el.addEventListener("input", filterAndRender);
+        el.addEventListener("change", filterAndRender);
+      });
+
+      resetButton.addEventListener("click", () => {
+        keywordInput.value = "";
+        categorySelect.value = "";
+        locationSelect.value = "";
+        experienceSelect.value = "";
+        closingDateInput.value = "";
+        showSavedOnly = false;
+        updateSavedFilterButton();
+        filterAndRender();
+      });
+
+      savedOnlyButton.addEventListener("click", () => {
+        showSavedOnly = !showSavedOnly;
+        updateSavedFilterButton();
+        filterAndRender();
+      });
+      document.addEventListener("portal:saved-change", () => {
+        updateSavedFilterButton();
+        filterAndRender();
+      });
+      updateSavedFilterButton();
+      filterAndRender();
+
+      const webSearchForm = document.getElementById("web-search-form");
+      webSearchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const parts = [document.getElementById("web-search-term").value.trim(), keywordInput.value.trim(), categorySelect.value, locationSelect.value.trim(), "South Africa official opportunities"].filter(Boolean);
+        const query = encodeURIComponent(parts.join(" "));
+        window.open(`https://www.google.com/search?q=${query}`, "_blank", "noopener,noreferrer");
+      });
+
+    });
+  </script>
+  <script src="js/features.js"></script>
+</body>
+</html>
